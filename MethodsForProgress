@@ -1,0 +1,32 @@
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Xml.Serialization;
+using System.Xml.Linq;
+
+namespace WinFormsApp1
+{
+    class MethodsForProgress
+    {
+
+        public static Progress p = new Progress();
+        public static XmlSerializer Serializer = new XmlSerializer(typeof(Progress));
+        public static void Serialize(Progress Pr)
+        {
+            const string name = "progress.xml";
+            using (FileStream fs = new FileStream(name, FileMode.Create))
+            {
+                Serializer.Serialize(fs, Pr);
+            }
+        }
+
+        public static Progress DeSerialize()
+        {
+            using (FileStream f = new FileStream("progress.xml", FileMode.Open))
+            {
+                p = (Progress)Serializer.Deserialize(f);
+            }
+            return p;
+        }    
+    }
+}
