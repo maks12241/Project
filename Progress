@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WinFormsApp1
+{
+    [Serializable]
+    public class Progress
+    {
+        public double money;
+        public int prBar_Hungry;
+        public int prBar_Drink;
+        public int prBar_Health;
+        public int prBar_Study;
+        public double minutes; 
+        public double hours;
+        public double day;
+        public double month;
+        public double year;
+
+        public Progress()
+        {
+
+        }
+    }
+}
